@@ -12,6 +12,7 @@ var elasticsearch_elements = {
 	elasticsearch_div: null,
 	elasticsearch_host: null,
 	elasticsearch_index: null,
+	tenant_id: null,
 	analyzer_tokenizer: null,
 
 
@@ -19,6 +20,7 @@ var elasticsearch_elements = {
 		elasticsearch_elements.elasticsearch_div = $('#elastic_search');
 		elasticsearch_elements.elasticsearch_host = $('#elasticsearch_host');
 		elasticsearch_elements.elasticsearch_index = $('#elasticsearch_index');
+		elasticsearch_elements.tenant_id = $('#tenant_id');
 		elasticsearch_elements.analyzer_tokenizer = $('#analyzer_tokenizer');
 
 		elasticsearch_elements.elasticsearch_host.on('input', function () {
@@ -28,6 +30,12 @@ var elasticsearch_elements = {
 		});
 
 		elasticsearch_elements.elasticsearch_index.on('input', function () {
+			fts_admin_settings.tagSettingsAsNotSaved($(this));
+		}).blur(function () {
+			elasticsearch_settings.saveSettings();
+		});
+
+		elasticsearch_elements.tenant_id.on('input', function () {
 			fts_admin_settings.tagSettingsAsNotSaved($(this));
 		}).blur(function () {
 			elasticsearch_settings.saveSettings();

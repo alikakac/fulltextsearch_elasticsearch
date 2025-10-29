@@ -36,6 +36,7 @@ class ConfigService {
 			ConfigLexicon::ELASTIC_LOGGER_ENABLED => $this->appConfig->getAppValueBool(ConfigLexicon::ELASTIC_LOGGER_ENABLED),
 			ConfigLexicon::ANALYZER_TOKENIZER => $this->appConfig->getAppValueString(ConfigLexicon::ANALYZER_TOKENIZER),
 			ConfigLexicon::ALLOW_SELF_SIGNED_CERT => $this->appConfig->getAppValueBool(ConfigLexicon::ALLOW_SELF_SIGNED_CERT),
+			ConfigLexicon::TENANT_ID => $this->appConfig->getAppValueString(ConfigLexicon::TENANT_ID),
 		];
 	}
 
@@ -49,6 +50,7 @@ class ConfigService {
 				case ConfigLexicon::ELASTIC_HOST:
 				case ConfigLexicon::ELASTIC_INDEX:
 				case ConfigLexicon::ANALYZER_TOKENIZER:
+				case ConfigLexicon::TENANT_ID:
 					$this->appConfig->setAppValueString($k, $save[$k]);
 					break;
 
@@ -71,6 +73,21 @@ class ConfigService {
 
 	public function checkConfig(array $data): bool {
 		return true;
+	}
+
+	/**
+	 * Get the tenant ID for multi-tenant index isolation.
+	 * This is mandatory for security to prevent cross-tenant data access.
+	 *
+	 * @return string
+	 * @throws ConfigurationException if tenant_id is not configured
+	 */
+	public function getTenantId(): string {
+		$tenantId = $this->appConfig->getAppValueString(ConfigLexicon::TENANT_ID);
+		if ($tenantId === '') {
+			throw new ConfigurationException('tenant_id must be configured for multi-tenant support');
+		}
+		return $tenantId;
 	}
 }
 

@@ -27,10 +27,12 @@ var elasticsearch_settings = {
 
 	/** @namespace result.elastic_host */
 	/** @namespace result.elastic_index */
+	/** @namespace result.tenant_id */
 	updateSettingPage: function (result) {
 
 		elasticsearch_elements.elasticsearch_host.val(result.elastic_host);
 		elasticsearch_elements.elasticsearch_index.val(result.elastic_index);
+		elasticsearch_elements.tenant_id.val(result.tenant_id);
 		elasticsearch_elements.analyzer_tokenizer.val(result.analyzer_tokenizer);
 
 		fts_admin_settings.tagSettingsAsSaved(elasticsearch_elements.elasticsearch_div);
@@ -42,6 +44,7 @@ var elasticsearch_settings = {
 		var data = {
 			elastic_host: elasticsearch_elements.elasticsearch_host.val(),
 			elastic_index: elasticsearch_elements.elasticsearch_index.val(),
+			tenant_id: elasticsearch_elements.tenant_id.val(),
 			analyzer_tokenizer: elasticsearch_elements.analyzer_tokenizer.val()
 		};
 

@@ -168,7 +168,10 @@ class IndexMappingService {
 //		if ($index->isStatus(IIndex::INDEX_CONTENT)) {
 			$body['content'] = $document->getContent();
 //		}
-		return array_merge($document->getInfoAll(), $body);
+
+		$result = array_merge($document->getInfoAll(), $body);
+		$result['tenant_id'] = $this->configService->getTenantId();
+		return $result;
 	}
 
 
@@ -231,6 +234,9 @@ class IndexMappingService {
 							'copy_to' => 'combined'
 						],
 						'provider' => [
+							'type' => 'keyword'
+						],
+						'tenant_id' => [
 							'type' => 'keyword'
 						],
 						'lastModified' => [
