@@ -46,6 +46,18 @@ Util::addStyle(Application::APP_NAME, 'admin');
 			</div>
 		</div>
 
+		<!-- TENANT_ISOLATION -->
+		<div class="div-table-row">
+			<div class="div-table-col div-table-col-left">
+				<span class="leftcol"><?php p($l->t('Tenant ID')); ?>:</span>
+				<br/>
+				<em><?php p($l->t('Unique identifier for multi-tenant isolation (mandatory for security).')); ?></em>
+			</div>
+			<div class="div-table-col">
+				<input type="text" id="tenant_id" placeholder="tenant-001"/>
+			</div>
+		</div>
+
 		<div class="div-table-row">
 			<div class="div-table-col div-table-col-left">
 				<span class="leftcol"><?php p($l->t('[Advanced] Analyzer tokenizer')); ?>:</span>

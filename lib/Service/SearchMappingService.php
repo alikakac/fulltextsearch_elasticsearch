@@ -99,6 +99,13 @@ class SearchMappingService {
 
 		$this->improveSearchQuerying($request, $params['body']['query']);
 
+		// Apply mandatory tenant filter to all queries for multi-tenant isolation
+		$tenantFilter = [['term' => ['tenant_id' => $this->configService->getTenantId()]]];
+		$params['body']['query']['bool']['filter'] = array_merge(
+			$params['body']['query']['bool']['filter'] ?? [],
+			$tenantFilter
+		);
+
 		return $params;
 	}
 
