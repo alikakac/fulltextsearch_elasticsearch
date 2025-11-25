@@ -219,62 +219,60 @@ class IndexMappingService {
 				]
 			],
 			'mappings' => [
-				'standard' => [
-					'dynamic' => true,
-					'properties' => [
-						'source' => [
-							'type' => 'keyword'
-						],
-						'title' => [
-							'type' => 'text',
-							'analyzer' => 'keyword',
-							'term_vector' => 'with_positions_offsets',
-							'copy_to' => 'combined'
-						],
-						'provider' => [
-							'type' => 'keyword'
-						],
-						'lastModified' => [
-							'type' => 'integer',
-						],
-						'tags' => [
-							'type' => 'keyword'
-						],
-						'metatags' => [
-							'type' => 'keyword'
-						],
-						'subtags' => [
-							'type' => 'keyword'
-						],
-						'content' => [
-							'type' => 'text',
-							'analyzer' => 'analyzer',
-							'term_vector' => 'with_positions_offsets',
-							'copy_to' => 'combined'
-						],
-						'owner' => [
-							'type' => 'keyword'
-						],
-						'users' => [
-							'type' => 'keyword'
-						],
-						'groups' => [
-							'type' => 'keyword'
-						],
-						'circles' => [
-							'type' => 'keyword'
-						],
-						'links' => [
-							'type' => 'keyword'
-						],
-						'hash' => [
-							'type' => 'keyword'
-						],
-						'combined' => [
-							'type' => 'text',
-							'analyzer' => 'analyzer',
-							'term_vector' => 'with_positions_offsets'
-						]
+				'dynamic' => true,
+				'properties' => [
+					'source' => [
+						'type' => 'keyword'
+					],
+					'title' => [
+						'type' => 'text',
+						'analyzer' => 'keyword',
+						'term_vector' => 'with_positions_offsets',
+						'copy_to' => 'combined'
+					],
+					'provider' => [
+						'type' => 'keyword'
+					],
+					'lastModified' => [
+						'type' => 'integer',
+					],
+					'tags' => [
+						'type' => 'keyword'
+					],
+					'metatags' => [
+						'type' => 'keyword'
+					],
+					'subtags' => [
+						'type' => 'keyword'
+					],
+					'content' => [
+						'type' => 'text',
+						'analyzer' => 'analyzer',
+						'term_vector' => 'with_positions_offsets',
+						'copy_to' => 'combined'
+					],
+					'owner' => [
+						'type' => 'keyword'
+					],
+					'users' => [
+						'type' => 'keyword'
+					],
+					'groups' => [
+						'type' => 'keyword'
+					],
+					'circles' => [
+						'type' => 'keyword'
+					],
+					'links' => [
+						'type' => 'keyword'
+					],
+					'hash' => [
+						'type' => 'keyword'
+					],
+					'combined' => [
+						'type' => 'text',
+						'analyzer' => 'analyzer',
+						'term_vector' => 'with_positions_offsets'
 					]
 				]
 			]
@@ -303,13 +301,17 @@ class IndexMappingService {
 					'attachment' => [
 						'field' => 'content',
 						'indexed_chars' => -1
-					],
+					]
+				],
+				[
 					'convert' => [
 						'field' => 'attachment.content',
 						'type' => 'string',
 						'target_field' => 'content',
 						'ignore_failure' => true
-					],
+					]
+				],
+				[
 					'remove' => [
 						'field' => 'attachment.content',
 						'ignore_failure' => true
