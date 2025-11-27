@@ -25,7 +25,7 @@ return [
 			  ->notName('autoload.php')
 			  ->in('vendor/elasticsearch')
 			  ->in('vendor/elastic')
-			  ->in('vendor/guzzlehttp')
+			  ->in('vendor/nyholm')
 			  ->in('vendor/php-http')
 			  ->in('vendor/psr'),
 //		Finder::create()->files()
