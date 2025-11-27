@@ -90,7 +90,9 @@ final class CommonClassesStrategy implements DiscoveryStrategy
     }
     public static function isGuzzleImplementingPsr18()
     {
-        return \defined('GuzzleHttp\\ClientInterface::MAJOR_VERSION');
+        // Guzzle removed in ES 9.x - always return false
+        return false;
+        // return \defined('GuzzleHttp\\ClientInterface::MAJOR_VERSION');
     }
     public static function isSymfonyImplementingHttpClient()
     {
