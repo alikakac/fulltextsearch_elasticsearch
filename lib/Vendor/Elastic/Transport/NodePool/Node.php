@@ -14,7 +14,7 @@
 declare (strict_types=1);
 namespace OCA\FullTextSearch_Elasticsearch\Vendor\Elastic\Transport\NodePool;
 
-use OCA\FullTextSearch_Elasticsearch\Vendor\Http\Discovery\Psr17FactoryDiscovery;
+use Http\Discovery\Psr17FactoryDiscovery;
 use OCA\FullTextSearch_Elasticsearch\Vendor\Psr\Http\Message\UriInterface;
 use function sprintf;
 use function substr;

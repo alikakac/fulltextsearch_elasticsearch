@@ -21,7 +21,7 @@ use OCA\FullTextSearch_Elasticsearch\Vendor\Elastic\Elasticsearch\Exception\Miss
 use OCA\FullTextSearch_Elasticsearch\Vendor\Elastic\Transport\OpenTelemetry;
 use OCA\FullTextSearch_Elasticsearch\Vendor\Elastic\Transport\Serializer\JsonSerializer;
 use OCA\FullTextSearch_Elasticsearch\Vendor\Elastic\Transport\Serializer\NDJsonSerializer;
-use OCA\FullTextSearch_Elasticsearch\Vendor\Http\Discovery\Psr17FactoryDiscovery;
+use Http\Discovery\Psr17FactoryDiscovery;
 use OCA\FullTextSearch_Elasticsearch\Vendor\Psr\Http\Message\ServerRequestInterface;
 use function http_build_query;
 use function rawurlencode;

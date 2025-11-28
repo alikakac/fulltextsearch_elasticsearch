@@ -20,8 +20,8 @@ use OCA\FullTextSearch_Elasticsearch\Vendor\Elastic\Transport\NodePool\SimpleNod
 use OCA\FullTextSearch_Elasticsearch\Vendor\Elastic\Transport\Exception;
 use OCA\FullTextSearch_Elasticsearch\Vendor\Elastic\Transport\NodePool\Resurrect\NoResurrect;
 use OCA\FullTextSearch_Elasticsearch\Vendor\Elastic\Transport\NodePool\Selector\RoundRobin;
-use OCA\FullTextSearch_Elasticsearch\Vendor\Http\Discovery\Exception\NotFoundException;
-use OCA\FullTextSearch_Elasticsearch\Vendor\Http\Discovery\Psr18ClientDiscovery;
+use Http\Discovery\Exception\NotFoundException;
+use Http\Discovery\Psr18ClientDiscovery;
 use OCA\FullTextSearch_Elasticsearch\Vendor\OpenTelemetry\API\Trace\TracerInterface;
 use OCA\FullTextSearch_Elasticsearch\Vendor\Psr\Http\Client\ClientInterface;
 use Psr\Log\LoggerInterface;

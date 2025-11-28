@@ -14,13 +14,14 @@ use Isolated\Symfony\Component\Finder\Finder;
 
 return [
 	'prefix' => 'OCA\\FullTextSearch_Elasticsearch\\Vendor',
-	'exclude-namespaces' => ['Composer', 'Psr\Log'],
+	'exclude-namespaces' => ['Composer', 'Psr\Log', 'Http\Discovery'],
 	'finders' => [
 		Finder::create()->files()
 			  ->exclude([
 							'test',
 							'composer',
 							'bin',
+							'discovery', // Exclude php-http/discovery - has Guzzle refs that don't exist in ES 9.x
 						])
 			  ->notName('autoload.php')
 			  ->in('vendor/elasticsearch')

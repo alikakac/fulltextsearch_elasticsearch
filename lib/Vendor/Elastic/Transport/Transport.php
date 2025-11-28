@@ -26,7 +26,7 @@ use OCA\FullTextSearch_Elasticsearch\Vendor\Elastic\Transport\Exception\NoAsyncC
 use OCA\FullTextSearch_Elasticsearch\Vendor\Elastic\Transport\Exception\NoNodeAvailableException;
 use Exception;
 use OCA\FullTextSearch_Elasticsearch\Vendor\Http\Client\HttpAsyncClient;
-use OCA\FullTextSearch_Elasticsearch\Vendor\Http\Discovery\HttpAsyncClientDiscovery;
+use Http\Discovery\HttpAsyncClientDiscovery;
 use OCA\FullTextSearch_Elasticsearch\Vendor\Http\Promise\Promise;
 use OCA\FullTextSearch_Elasticsearch\Vendor\OpenTelemetry\API\Globals;
 use OCA\FullTextSearch_Elasticsearch\Vendor\OpenTelemetry\API\Trace\TracerInterface;
