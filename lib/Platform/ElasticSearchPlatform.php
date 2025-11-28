@@ -261,7 +261,7 @@ class ElasticSearchPlatform implements IFullTextSearchPlatform {
 	private function parseIndexErrorException(Exception $e): array {
 		$arr = json_decode($e->getMessage(), true);
 		if (!is_array($arr)) {
-			return ['error', 'unknown error', ''];
+			return ['error', get_class($e) . ': ' . $e->getMessage(), ''];
 		}
 
 		if (empty($this->getArray('error', $arr))) {

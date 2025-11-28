@@ -17,8 +17,8 @@ namespace OCA\FullTextSearch_Elasticsearch\Vendor\Elastic\Transport\NodePool\Res
 use OCA\FullTextSearch_Elasticsearch\Vendor\Elastic\Transport\NodePool\Node;
 use Exception;
 use OCA\FullTextSearch_Elasticsearch\Vendor\Psr\Http\Client\ClientInterface;
-use OCA\FullTextSearch_Elasticsearch\Vendor\Http\Discovery\Psr17FactoryDiscovery;
-use OCA\FullTextSearch_Elasticsearch\Vendor\Http\Discovery\Psr18ClientDiscovery;
+use Http\Discovery\Psr17FactoryDiscovery;
+use Http\Discovery\Psr18ClientDiscovery;
 use OCA\FullTextSearch_Elasticsearch\Vendor\Psr\Http\Message\RequestFactoryInterface;
 class ElasticsearchResurrect implements ResurrectInterface
 {
