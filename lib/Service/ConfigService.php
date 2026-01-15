@@ -28,6 +28,8 @@ class ConfigService {
 	const ELASTIC_LOGGER_ENABLED = 'elastic_logger_enabled';
 	const ANALYZER_TOKENIZER = 'analyzer_tokenizer';
 	const ALLOW_SELF_SIGNED_CERT = 'allow_self_signed_cert';
+	// TENANT_ISOLATION
+	const TENANT_ID = 'tenant_id';
 
 	public static array $defaults = [
 		self::ELASTIC_HOST => '',
@@ -36,7 +38,8 @@ class ConfigService {
 		self::ELASTIC_VER_BELOW66 => '0',
 		self::ELASTIC_LOGGER_ENABLED => 'true',
 		self::ANALYZER_TOKENIZER => 'standard',
-		self::ALLOW_SELF_SIGNED_CERT => 'false'
+		self::ALLOW_SELF_SIGNED_CERT => 'false',
+		self::TENANT_ID => ''
 	];
 
 	public function __construct(
@@ -175,6 +178,21 @@ class ConfigService {
 	 */
 	public function checkConfig(array $data): bool {
 		return true;
+	}
+
+	/**
+	 * TENANT_ISOLATION
+	 * Get the tenant ID for multi-tenant index isolation
+	 *
+	 * @return string
+	 * @throws ConfigurationException
+	 */
+	public function getTenantId(): string {
+		$tenantId = $this->getAppValue(self::TENANT_ID);
+		if ($tenantId === '') {
+			throw new ConfigurationException('tenant_id must be configured for multi-tenant support');
+		}
+		return $tenantId;
 	}
 }
 
